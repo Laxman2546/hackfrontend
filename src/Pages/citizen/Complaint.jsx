@@ -17,6 +17,7 @@ const CATEGORY_OPTIONS = [
   "Street Lights",
   "Drainage",
   "Garbage Collection",
+  "Others",
 ];
 
 const PRIORITY_OPTIONS = ["low", "medium", "high", "critical"];
@@ -76,7 +77,10 @@ export default function ComplaintsPage() {
           address_line2: user?.address_line2 || current.address_line2,
         }));
 
-        const complaintsResponse = await listComplaints({ mine: true, page_size: 10 }, true);
+        const complaintsResponse = await listComplaints(
+          { mine: true, page_size: 10 },
+          true,
+        );
         if (!active) return;
         setComplaints(getListItems(complaintsResponse));
       } catch (err) {
@@ -149,7 +153,10 @@ export default function ComplaintsPage() {
         longitude: "",
       }));
 
-      const complaintsResponse = await listComplaints({ mine: true, page_size: 10 }, true);
+      const complaintsResponse = await listComplaints(
+        { mine: true, page_size: 10 },
+        true,
+      );
       setComplaints(getListItems(complaintsResponse));
     } catch (err) {
       setSubmitError(err.message || "Unable to submit complaint.");
@@ -168,7 +175,9 @@ export default function ComplaintsPage() {
           padding: "24px",
         }}
       >
-        <h2 style={{ fontFamily: "var(--font-display)", marginBottom: "40px" }}>VillageX</h2>
+        <h2 style={{ fontFamily: "var(--font-display)", marginBottom: "40px" }}>
+          VillageX
+        </h2>
 
         <NavLink to="/citizen-dashboard" style={sidebarLink}>
           Dashboard
@@ -201,7 +210,11 @@ export default function ComplaintsPage() {
               <Field
                 label="Category"
                 element={
-                  <select value={form.category} onChange={setField("category")} style={input}>
+                  <select
+                    value={form.category}
+                    onChange={setField("category")}
+                    style={input}
+                  >
                     {CATEGORY_OPTIONS.map((item) => (
                       <option key={item} value={item}>
                         {item}
@@ -213,7 +226,11 @@ export default function ComplaintsPage() {
               <Field
                 label="Priority"
                 element={
-                  <select value={form.priority} onChange={setField("priority")} style={input}>
+                  <select
+                    value={form.priority}
+                    onChange={setField("priority")}
+                    style={input}
+                  >
                     {PRIORITY_OPTIONS.map((item) => (
                       <option key={item} value={item}>
                         {item}
@@ -226,36 +243,141 @@ export default function ComplaintsPage() {
 
             <Field
               label="Complaint Title"
-              element={<input value={form.title} onChange={setField("title")} placeholder="Enter complaint title" style={input} />}
+              element={
+                <input
+                  value={form.title}
+                  onChange={setField("title")}
+                  placeholder="Enter complaint title"
+                  style={input}
+                />
+              }
             />
             <Field
               label="Description"
-              element={<textarea rows={5} value={form.description} onChange={setField("description")} placeholder="Describe your issue" style={input} />}
+              element={
+                <textarea
+                  rows={5}
+                  value={form.description}
+                  onChange={setField("description")}
+                  placeholder="Describe your issue"
+                  style={input}
+                />
+              }
             />
 
             <div style={grid2}>
-              <Field label="Village" element={<input value={form.village} onChange={setField("village")} style={input} />} />
-              <Field label="Ward Number" element={<input value={form.ward_number} onChange={setField("ward_number")} style={input} />} />
+              <Field
+                label="Village"
+                element={
+                  <input
+                    value={form.village}
+                    onChange={setField("village")}
+                    style={input}
+                  />
+                }
+              />
+              <Field
+                label="Ward Number"
+                element={
+                  <input
+                    value={form.ward_number}
+                    onChange={setField("ward_number")}
+                    style={input}
+                  />
+                }
+              />
             </div>
 
             <div style={grid2}>
-              <Field label="District" element={<input value={form.district} onChange={setField("district")} style={input} />} />
-              <Field label="State" element={<input value={form.state} onChange={setField("state")} style={input} />} />
+              <Field
+                label="District"
+                element={
+                  <input
+                    value={form.district}
+                    onChange={setField("district")}
+                    style={input}
+                  />
+                }
+              />
+              <Field
+                label="State"
+                element={
+                  <input
+                    value={form.state}
+                    onChange={setField("state")}
+                    style={input}
+                  />
+                }
+              />
             </div>
 
             <div style={grid2}>
-              <Field label="Pincode" element={<input value={form.pincode} onChange={setField("pincode")} style={input} />} />
-              <Field label="Address Line 1" element={<input value={form.address_line1} onChange={setField("address_line1")} style={input} />} />
+              <Field
+                label="Pincode"
+                element={
+                  <input
+                    value={form.pincode}
+                    onChange={setField("pincode")}
+                    style={input}
+                  />
+                }
+              />
+              <Field
+                label="Address Line 1"
+                element={
+                  <input
+                    value={form.address_line1}
+                    onChange={setField("address_line1")}
+                    style={input}
+                  />
+                }
+              />
             </div>
 
             <div style={grid2}>
-              <Field label="Address Line 2" element={<input value={form.address_line2} onChange={setField("address_line2")} style={input} />} />
-              <Field label="Landmark" element={<input value={form.landmark} onChange={setField("landmark")} style={input} />} />
+              <Field
+                label="Address Line 2"
+                element={
+                  <input
+                    value={form.address_line2}
+                    onChange={setField("address_line2")}
+                    style={input}
+                  />
+                }
+              />
+              <Field
+                label="Landmark"
+                element={
+                  <input
+                    value={form.landmark}
+                    onChange={setField("landmark")}
+                    style={input}
+                  />
+                }
+              />
             </div>
 
             <div style={grid2}>
-              <Field label="Latitude" element={<input value={form.latitude} onChange={setField("latitude")} style={input} />} />
-              <Field label="Longitude" element={<input value={form.longitude} onChange={setField("longitude")} style={input} />} />
+              <Field
+                label="Latitude"
+                element={
+                  <input
+                    value={form.latitude}
+                    onChange={setField("latitude")}
+                    style={input}
+                  />
+                }
+              />
+              <Field
+                label="Longitude"
+                element={
+                  <input
+                    value={form.longitude}
+                    onChange={setField("longitude")}
+                    style={input}
+                  />
+                }
+              />
             </div>
 
             <button type="submit" disabled={submitting} style={submitButton}>
@@ -281,12 +403,19 @@ export default function ComplaintsPage() {
                 }}
               >
                 <div>
-                  <h4 style={{ margin: 0 }}>{item.title || item.complaint_number || "Untitled complaint"}</h4>
+                  <h4 style={{ margin: 0 }}>
+                    {item.title ||
+                      item.complaint_number ||
+                      "Untitled complaint"}
+                  </h4>
                   <p style={{ margin: "4px 0 0", color: "#64748b" }}>
-                    {item.category || "General"} {item.location?.village ? `- ${item.location.village}` : ""}
+                    {item.category || "General"}{" "}
+                    {item.location?.village ? `- ${item.location.village}` : ""}
                   </p>
                 </div>
-                <span style={statusBadge(item.status)}>{item.status || "open"}</span>
+                <span style={statusBadge(item.status)}>
+                  {item.status || "open"}
+                </span>
               </div>
             ))
           ) : (
@@ -301,7 +430,9 @@ export default function ComplaintsPage() {
 function Field({ label, element }) {
   return (
     <label style={{ display: "block", marginBottom: "16px" }}>
-      <span style={{ display: "block", marginBottom: "8px", fontWeight: 600 }}>{label}</span>
+      <span style={{ display: "block", marginBottom: "8px", fontWeight: 600 }}>
+        {label}
+      </span>
       {element}
     </label>
   );
