@@ -1,0 +1,83 @@
+/* VillageX — Global Stylesheet
+   Import in main.jsx / index.jsx as: import './index.css'
+   ──────────────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+
+/* ─── CSS Variables ─────────────────────────────────────── */
+:root {
+  /* Brand Greens */
+  --vx-green-50:  #f0fdf4;
+  --vx-green-100: #dcfce7;
+  --vx-green-200: #bbf7d0;
+  --vx-green-300: #86efac;
+  --vx-green-400: #4ade80;
+  --vx-green-500: #22c55e;
+  --vx-green-600: #16a34a;
+  --vx-green-700: #15803d;
+  --vx-green-800: #166534;
+
+  /* Accent Blues */
+  --vx-blue-50:  #eff6ff;
+  --vx-blue-100: #dbeafe;
+  --vx-blue-400: #60a5fa;
+  --vx-blue-500: #3b82f6;
+  --vx-blue-600: #2563eb;
+  --vx-blue-700: #1d4ed8;
+
+  /* Neutrals */
+  --vx-slate-50:  #f8fafc;
+  --vx-slate-100: #f1f5f9;
+  --vx-slate-200: #e2e8f0;
+  --vx-slate-300: #cbd5e1;
+  --vx-slate-400: #94a3b8;
+  --vx-slate-500: #64748b;
+  --vx-slate-600: #475569;
+  --vx-slate-700: #334155;
+  --vx-slate-800: #1e293b;
+  --vx-slate-900: #0f172a;
+
+  /* Semantic */
+  --vx-error:   #dc2626;
+  --vx-warning: #d97706;
+  --vx-success: #16a34a;
+
+  /* Typography */
+  --font-display: 'Sora', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  /* Radius */
+  --vx-radius-sm: 8px;
+  --vx-radius-md: 12px;
+  --vx-radius-lg: 16px;
+  --vx-radius-xl: 20px;
+
+  /* Shadows */
+  --vx-shadow-card: 0 4px 24px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
+  --vx-shadow-form: 0 16px 48px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
+}
+
+/* ─── Base Reset ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: #ffffff;
+  color: var(--vx-slate-800);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  color: var(--vx-slate-900);
+}
+
+a { text-decoration: none; color: inherit; }
+
+button, input, select, textarea { font-family: var(--font-body); }
+
+img { max-width: 100%; display: block; }

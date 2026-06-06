@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/Landing.css";
+import { useNavigate } from "react-router-dom";
 const features = [
   {
     icon: "📋",
@@ -211,6 +212,7 @@ const DashboardMock = () => (
 
 export default function VillageX() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -228,7 +230,20 @@ export default function VillageX() {
               </li>
             ))}
           </ul>
-          <button className="vx-nav-cta">Get Started</button>
+          <div style={{ display: "flex", gap: 12 }}>
+            <button
+              className="vx-nav-cta"
+              onClick={() => navigate("/citizen-login")}
+            >
+              Login
+            </button>
+            <button
+              className="vx-nav-cta"
+              onClick={() => navigate("/citizen-register")}
+            >
+              Register
+            </button>
+          </div>
           <button
             className="vx-hamburger"
             onClick={() => setMenuOpen((o) => !o)}
