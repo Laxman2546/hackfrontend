@@ -119,7 +119,7 @@ async function request(path, { method = "GET", query, body, auth = true } = {}) 
 }
 
 export function resolveDashboardRoute(role) {
-  if (role === "ward_member") return "/ward-dashboard";
+  if (role === "ward_member") return "/ward-complaints";
   if (role === "citizen") return "/citizen-dashboard";
   return "/government-dashboard";
 }
@@ -165,6 +165,13 @@ export async function listComplaints(query = {}, auth = false) {
   return request("/api/complaints/", {
     query,
     auth,
+  });
+}
+
+export async function updateComplaint(complaintId, payload) {
+  return request(`/api/complaints/${encodeURIComponent(complaintId)}/`, {
+    method: "PATCH",
+    body: payload,
   });
 }
 

@@ -38,10 +38,7 @@ export default function WardDashboard() {
           throw new Error("Ward dashboard needs a village on the logged-in profile.");
         }
 
-        const response = await getVillageDashboard(user.village, {
-          district: user.district || undefined,
-          state: user.state || undefined,
-        });
+        const response = await getVillageDashboard(user.village);
 
         if (!active) return;
         setDashboard(response?.data?.village_dashboard || null);
@@ -100,6 +97,23 @@ export default function WardDashboard() {
               {profile?.village ? `Village: ${profile.village}` : "Ward account connected to backend data."}
             </p>
           </div>
+
+          <button
+            type="button"
+            onClick={() => navigate("/ward-complaints")}
+            style={{
+              padding: "12px 16px",
+              borderRadius: "12px",
+              border: "1px solid #cbd5e1",
+              background: "#fff",
+              color: "#0f172a",
+              cursor: "pointer",
+              fontWeight: 700,
+              marginRight: "12px",
+            }}
+          >
+            Manage Complaints
+          </button>
 
           <button
             type="button"

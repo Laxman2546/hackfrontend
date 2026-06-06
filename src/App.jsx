@@ -9,7 +9,7 @@ import GovernmentDashboard from "./Pages/government/GovernmentDashboard";
 import CitizenDashboard from "./Pages/citizen/CitizenDashboard";
 import ComplaintsPage from "./Pages/citizen/Complaint";
 import CurrentProjects from "./Pages/citizen/CurrentProjects";
-import WardDashboard from "./Pages/ward/WardDashboard";
+import WardComplaints from "./Pages/ward/WardComplaints";
 const App = () => {
   return (
     <div>
@@ -20,7 +20,7 @@ const App = () => {
         <Route path="/citizen-dashboard" element={<CitizenDashboard />} />
         <Route path="/citizen-projects" element={<CurrentProjects />} />
         <Route path="/government-dashboard" element={<GovernmentDashboard />} />
-        <Route path="/ward-dashboard" element={<WardDashboard />} />
+        <Route path="/ward-complaints" element={<WardComplaints />} />
         <Route path="/complaints" element={<ComplaintsPage />} />
         <Route path="/register" element={<Registration />} />
         <Route path="/ward-login" element={<WardLogin />} />
